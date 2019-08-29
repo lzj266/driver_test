@@ -5,8 +5,8 @@
  ******************************************************************************
   Filename : test.c
   Version  : 1.0
-  Author   : GK305-liuzhijie
-  Email    : liuzhijie@thtf.com.cn
+  Author   : liuzhijie
+  Email    : liuzhijie266@163.com
   Date     : 2019年8月28日
  *****************************************************************************/
 

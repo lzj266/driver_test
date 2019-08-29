@@ -87,6 +87,7 @@ long demo_ioctl(struct file *filep, unsigned int cmd, unsigned long args)
 			// 硬件操作
 			// writel readl
 		}
+		break;
 	case LEDOFF:
 		if (led_num == 0)
 		{
@@ -105,6 +106,7 @@ long demo_ioctl(struct file *filep, unsigned int cmd, unsigned long args)
 			// 硬件操作
 			// writel readl
 		}
+		break;
 	default:
 		printk("cmd id error.\n");
 	}

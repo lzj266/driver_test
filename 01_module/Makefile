@@ -1,0 +1,11 @@
+KERNELDIR ?= /home/linux/ti-processor-sdk-linux-am335x-evm-04.00.00.04/board-support/linux-4.9.28/
+PWD := $(shell pwd)
+
+all:
+	make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- -C $(KERNELDIR) M=$(PWD) modules
+install:
+	sudo cp *.ko /tftpboot
+clean:
+	make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- -C $(KERNELDIR) M=$(PWD) clean
+
+obj-m += demo.o

@@ -29,21 +29,21 @@ void __iomem *gpx1con_vir;
 void __iomem *gpx1dat_vir; 
 
 
-int demo_open(struct inode *inode, struct file *filep)
+int demo_open(struct inode *inode, struct file *filp)
 {
 	printk("%s -- %d.\n", __FUNCTION__, __LINE__);
 
 	return 0;
 }
 
-int demo_release(struct inode *inode, struct file *filep)
+int demo_release(struct inode *inode, struct file *filp)
 {
 	printk("%s -- %d.\n", __FUNCTION__, __LINE__);
 
 	return 0;
 }
 
-ssize_t demo_read(struct file *filep, char __user *userbuf, size_t size, loff_t *offset)
+ssize_t demo_read(struct file *filp, char __user *userbuf, size_t size, loff_t *offset)
 {
 	printk("%s -- %d.\n", __FUNCTION__, __LINE__);
 	//copy_to_user(void __user * to, const void * from, size_t n)
@@ -51,7 +51,7 @@ ssize_t demo_read(struct file *filep, char __user *userbuf, size_t size, loff_t 
 	return 0;
 }
 
-ssize_t demo_write(struct file *filep, const char __user *userbuf, size_t size, loff_t *offset)
+ssize_t demo_write(struct file *filp, const char __user *userbuf, size_t size, loff_t *offset)
 {
 	printk("%s -- %d.\n", __FUNCTION__, __LINE__);
 	//copy_from_user(void * to, const void __user * from, unsigned long n)
@@ -59,7 +59,7 @@ ssize_t demo_write(struct file *filep, const char __user *userbuf, size_t size, 
 	return 0;
 }
 
-long demo_ioctl(struct file *filep, unsigned int cmd, unsigned long args)
+long demo_ioctl(struct file *filp, unsigned int cmd, unsigned long args)
 {	
 	led_node_t *led = (led_node_t *)args;
 	int led_num;

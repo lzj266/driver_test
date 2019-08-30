@@ -16,14 +16,14 @@
 
 
 
-int demo_open(struct inode *inode, struct file *filep)
+int demo_open(struct inode *inode, struct file *filp)
 {
 	printk("%s -- %d\n", __FUNCTION__, __LINE__);
 
 	return 0;
 }
 
-int demo_close (struct inode *inode, struct file *filep)
+int demo_close (struct inode *inode, struct file *filp)
 {
 	printk("%s -- %d\n", __FUNCTION__, __LINE__);
 

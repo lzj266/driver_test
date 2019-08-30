@@ -17,14 +17,14 @@
 
 
 
-int demo_open(struct inode *inode, struct file *filep)
+int demo_open(struct inode *inode, struct file *filp)
 {
 	printk("%s -- %d.\n", __FUNCTION__, __LINE__);
 
 	return 0;
 }
 
-int demo_release(struct inode *inode, struct file *filep)
+int demo_release(struct inode *inode, struct file *filp)
 {
 	printk("%s -- %d.\n", __FUNCTION__, __LINE__);
 
@@ -51,7 +51,7 @@ int demo_release(struct inode *inode, struct file *filep)
 			该函数调用了access_ok来验证用户空间的内存是否真实可读写，避免在内核中的缺页故障带来的一些问题
 */
 char kbuf[4] = {1,2,3,4};
-ssize_t demo_read(struct file *filep, char __user *userbuf, size_t size, loff_t *offset)
+ssize_t demo_read(struct file *filp, char __user *userbuf, size_t size, loff_t *offset)
 {
 	int rbytes;	/* 定义的变量要写在函数内部最前面，否则会报警告 */
 
@@ -87,7 +87,7 @@ ssize_t demo_read(struct file *filep, char __user *userbuf, size_t size, loff_t 
 			@return: 0成功，非0出错
 			该函数调用了access_ok来验证用户空间的内存是否真实可读写，避免在内核中的缺页故障带来的一些问题
 */
-ssize_t demo_write(struct file *filep, const char __user *userbuf, size_t size, loff_t *offset)
+ssize_t demo_write(struct file *filp, const char __user *userbuf, size_t size, loff_t *offset)
 {
 	int i = 0;
 	int wbytes;

@@ -19,27 +19,27 @@
 int major;
 const char *name = "demoname";
 
-int demo_open(struct inode *inode, struct file *filep)
+int demo_open(struct inode *inode, struct file *filp)
 {
 	printk("%s -- %d.\n", __FUNCTION__, __LINE__);
 
 	return 0;
 }
 
-int demo_release(struct inode *inode, struct file *filep)
+int demo_release(struct inode *inode, struct file *filp)
 {
 	printk("%s -- %d.\n", __FUNCTION__, __LINE__);
 
 	return 0;
 }
 
-ssize_t demo_read(struct file *filep, char __user *userbuf, size_t size, loff_t *offset)
+ssize_t demo_read(struct file *filp, char __user *userbuf, size_t size, loff_t *offset)
 {
 	printk("%s -- %d.\n", __FUNCTION__, __LINE__);
 
 	return 0;
 }
-ssize_t demo_write(struct file *filep, const char __user *userbuf, size_t size, loff_t *offset)
+ssize_t demo_write(struct file *filp, const char __user *userbuf, size_t size, loff_t *offset)
 {
 	printk("%s -- %d.\n", __FUNCTION__, __LINE__);
 
@@ -102,7 +102,7 @@ ssize_t demo_write(struct file *filep, const char __user *userbuf, size_t size, 
  		#define _IOC_READ  2U
 		#define _IOC_TYPECHECK(t) (sizeof(t))
 */
-long demo_ioctl(struct file *filep, unsigned int cmd, unsigned long args)
+long demo_ioctl(struct file *filp, unsigned int cmd, unsigned long args)
 {
 	led_node_t *led = (led_node_t *)args;
 	int lednum;
